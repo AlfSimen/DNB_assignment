@@ -23,4 +23,28 @@ public class Team {
 
     @Column(name = "name")
     private String name;
+
+    // TODO ALF: fee invoces?
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
+        private String name;
+
+        private Builder() {
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Team build() {
+            Team team = new Team();
+            team.name = this.name;
+            return team;
+        }
+    }
 }

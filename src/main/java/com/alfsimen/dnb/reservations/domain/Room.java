@@ -38,9 +38,66 @@ public class Room {
     @Column(name = "capacity")
     private Integer capacity;
 
-    @Column(name = "videoConference")
+    @Column(name = "video_conference")
     private boolean videoConference;
 
-    @Column(name = "drawingBoard")
+    @Column(name = "drawing_board")
     private boolean drawingBoard;
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
+        private String name;
+        private Floor floor;
+        private List<Reservation> reservations;
+        private Integer capacity;
+        private boolean videoConference;
+        private boolean drawingBoard;
+
+        private Builder() {
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder floor(Floor floor) {
+            this.floor = floor;
+            return this;
+        }
+
+        public Builder reservations(List<Reservation> reservations) {
+            this.reservations = reservations;
+            return this;
+        }
+
+        public Builder capacity(Integer capacity) {
+            this.capacity = capacity;
+            return this;
+        }
+
+        public Builder videoConference(boolean videoConference) {
+            this.videoConference = videoConference;
+            return this;
+        }
+
+        public Builder drawingBoard(boolean drawingBoard) {
+            this.drawingBoard = drawingBoard;
+            return this;
+        }
+
+        public Room build() {
+            Room room = new Room();
+            room.floor = this.floor;
+            room.reservations = this.reservations;
+            room.capacity = this.capacity;
+            room.name = this.name;
+            room.drawingBoard = this.drawingBoard;
+            room.videoConference = this.videoConference;
+            return room;
+        }
+    }
 }

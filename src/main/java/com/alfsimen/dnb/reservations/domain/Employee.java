@@ -34,4 +34,40 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee")
     private List<Reservation> reservation;
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
+        private String username;
+        private Team team;
+        private List<Reservation> reservation;
+
+        private Builder() {
+        }
+
+        public Builder username(String username) {
+            this.username = username;
+            return this;
+        }
+
+        public Builder team(Team team) {
+            this.team = team;
+            return this;
+        }
+
+        public Builder reservation(List<Reservation> reservation) {
+            this.reservation = reservation;
+            return this;
+        }
+
+        public Employee build() {
+            Employee employee = new Employee();
+            employee.team = this.team;
+            employee.username = this.username;
+            employee.reservation = this.reservation;
+            return employee;
+        }
+    }
 }

@@ -6,8 +6,8 @@ CREATE SEQUENCE floor_sequence
 
 CREATE TABLE floor
 (
-    id          INTEGER DEFAULT nextval('floor_sequence'),
-    floorNumber integer NOT NULL,
+    id           INTEGER DEFAULT nextval('floor_sequence'),
+    floor_number integer NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -19,12 +19,12 @@ CREATE SEQUENCE room_sequence
 
 CREATE TABLE room
 (
-    id              INTEGER DEFAULT nextval('room_sequence'),
-    name            varchar NOT NULL,
-    floor           INTEGER NOT NULL REFERENCES floor,
-    capacity        INT4    NOT NULL,
-    videoConference BOOLEAN NOT NULL,
-    drawingBoard    BOOLEAN NOT NULL,
+    id               INTEGER DEFAULT nextval('room_sequence'),
+    name             varchar NOT NULL,
+    floor            INTEGER NOT NULL REFERENCES floor,
+    capacity         INT4    NOT NULL,
+    video_conference BOOLEAN NOT NULL,
+    drawing_board    BOOLEAN NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -63,13 +63,13 @@ CREATE SEQUENCE reservation_sequence
 
 CREATE TABLE reservation
 (
-    id               INTEGER DEFAULT nextval('reservation_sequence'),
-    room             INTEGER   NOT NULL REFERENCES room,
-    employee         INTEGER   NOT NULL REFERENCES employee,
-    reservedFrom     TIMESTAMP NOT NULL,
-    reservedTo       TIMESTAMP NOT NULL,
-    confirmedArrival BOOLEAN   NOT NULL,
-    active           BOOLEAN   NOT NULL,
+    id                INTEGER DEFAULT nextval('reservation_sequence'),
+    room              INTEGER   NOT NULL REFERENCES room,
+    employee          INTEGER   NOT NULL REFERENCES employee,
+    reserved_from     TIMESTAMP NOT NULL,
+    reserved_to       TIMESTAMP NOT NULL,
+    confirmed_arrival BOOLEAN   NOT NULL,
+    active            BOOLEAN   NOT NULL,
     PRIMARY KEY (id)
 );
 

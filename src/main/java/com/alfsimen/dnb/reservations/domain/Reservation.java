@@ -32,13 +32,13 @@ public class Reservation {
     @ManyToOne
     private Employee employee;
 
-    @Column(name = "reservedFrom")
+    @Column(name = "reserved_from")
     private LocalDateTime reservedFrom;
 
-    @Column(name = "reservedTo")
+    @Column(name = "reserved_to")
     private LocalDateTime reservedTo;
 
-    @Column(name = "confirmedArrival", nullable = false)
+    @Column(name = "confirmed_arrival", nullable = false)
     private boolean confirmedArrival;
 
     @Column(name = "active", nullable = false)

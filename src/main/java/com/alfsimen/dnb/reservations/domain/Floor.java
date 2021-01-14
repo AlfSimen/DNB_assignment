@@ -23,9 +23,38 @@ public class Floor {
     @SequenceGenerator(name = "floor_generator", sequenceName = "floor_sequence", allocationSize = 1)
     private Long id;
 
-    @Column(name = "floorNumber")
+    @Column(name = "floor_number")
     private Integer floorNumber;
 
     @OneToMany(mappedBy = "floor")
     private List<Room> rooms;
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
+        private Integer floorNumber;
+        private List<Room> rooms;
+
+        private Builder() {
+        }
+
+        public Builder floorNumber(Integer floorNumber) {
+            this.floorNumber = floorNumber;
+            return this;
+        }
+
+        public Builder rooms(List<Room> rooms) {
+            this.rooms = rooms;
+            return this;
+        }
+
+        public Floor build() {
+            Floor floor = new Floor();
+            floor.rooms = this.rooms;
+            floor.floorNumber = this.floorNumber;
+            return floor;
+        }
+    }
 }
