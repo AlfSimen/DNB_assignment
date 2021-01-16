@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,7 +36,7 @@ public class Floor {
 
     public static final class Builder {
         private Integer floorNumber;
-        private List<Room> rooms;
+        private List<Room> rooms = new ArrayList<>();
 
         private Builder() {
         }

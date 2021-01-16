@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -42,7 +43,7 @@ public class Employee {
     public static final class Builder {
         private String username;
         private Team team;
-        private List<Reservation> reservation;
+        private List<Reservation> reservation = new ArrayList<>();
 
         private Builder() {
         }

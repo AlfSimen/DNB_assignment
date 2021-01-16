@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-// TODO ALF: security
 @RestController
 public class AdminController {
 

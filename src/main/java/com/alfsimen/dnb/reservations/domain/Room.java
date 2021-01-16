@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -51,7 +52,7 @@ public class Room {
     public static final class Builder {
         private String name;
         private Floor floor;
-        private List<Reservation> reservations;
+        private List<Reservation> reservations = new ArrayList<>();
         private Integer capacity;
         private boolean videoConference;
         private boolean drawingBoard;

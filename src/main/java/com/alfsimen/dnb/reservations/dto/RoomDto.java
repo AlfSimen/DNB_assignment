@@ -3,6 +3,7 @@ package com.alfsimen.dnb.reservations.dto;
 import lombok.Builder;
 import lombok.Value;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Value
@@ -11,7 +12,8 @@ public class RoomDto {
 
     String name;
     Integer floorNumber;
-    List<ReservationDto> reservations;
+    @Builder.Default
+    List<ReservationDto> reservations = new ArrayList<>();
     Integer capacity;
     boolean videoConference;
     boolean drawingBoard;

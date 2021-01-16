@@ -18,6 +18,11 @@ VALUES (1, 'Avengers');
 INSERT INTO team(id, name)
 VALUES (2, 'Guardians of the Galaxy');
 
+INSERT INTO invoice(id, team)
+VALUES (1, 1);
+INSERT INTO invoice(id, team)
+VALUES (2, 2);
+
 INSERT INTO employee (id, username, team)
 VALUES (1, 'ironman', 1);
 INSERT INTO employee (id, username, team)

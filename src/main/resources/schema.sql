@@ -41,6 +41,18 @@ CREATE TABLE team
     PRIMARY KEY (id)
 );
 
+-- Invoice --
+CREATE SEQUENCE invoice_sequence
+    START WITH 100000
+    INCREMENT BY 1
+    MINVALUE 1;
+
+CREATE TABLE invoice
+(
+    id   INTEGER DEFAULT nextval('invoice_sequence'),
+    team INTEGER NOT NULL REFERENCES team
+);
+
 -- Emploee --
 CREATE SEQUENCE employee_sequence
     START WITH 100000
